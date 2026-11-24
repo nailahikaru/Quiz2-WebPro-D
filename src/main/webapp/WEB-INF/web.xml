@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+  <display-name>UKM Genshin</display-name>
+
+  <!-- Urutan filter: charset -> CSRF -> wajib login -->
+  <filter>
+    <filter-name>CharsetFilter</filter-name>
+    <filter-class>com.ukmgenshin.filter.CharsetFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>CsrfFilter</filter-name>
+    <filter-class>com.ukmgenshin.filter.CsrfFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>com.ukmgenshin.filter.AuthFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>CharsetFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CsrfFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>/announcements/*</url-pattern>
+    <url-pattern>/portfolios/*</url-pattern>
+    <url-pattern>/events/*</url-pattern>
+    <url-pattern>/registrations/*</url-pattern>
+    <url-pattern>/schedule/*</url-pattern>
+    <url-pattern>/cash/*</url-pattern>
+    <url-pattern>/presence/*</url-pattern>
+    <url-pattern>/users/*</url-pattern>
+    <url-pattern>/profile</url-pattern>
+  </filter-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <session-config>
+    <session-timeout>30</session-timeout>
+    <cookie-config>
+      <http-only>true</http-only>
+    </cookie-config>
+  </session-config>
+
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <include-prelude>/WEB-INF/jspf/taglibs.jspf</include-prelude>
+      <trim-directive-whitespaces>true</trim-directive-whitespaces>
+    </jsp-property-group>
+  </jsp-config>
+
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/views/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/error.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/error.jsp</location>
+  </error-page>
+</web-app>

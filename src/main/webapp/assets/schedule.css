@@ -1,0 +1,51 @@
+body {
+  background-image: url('../image/background-1.webp') !important; 
+  background-size: cover !important; 
+  background-position: center !important; 
+  background-repeat: no-repeat !important; 
+  background-attachment: fixed !important; 
+  
+  background-color: transparent !important; 
+  
+  min-height: 100vh;
+  color: #0E2341;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Custom */
+.card {
+    border: none;
+    background-color: #E6F0FA;
+    box-shadow: 0 4px 12px #A5B3C5; 
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px #5B6B7C;
+}
+
+.table > :not(caption) > * > * {
+    vertical-align: middle;
+}
+
+.btn-custom-schedule {
+    background-color: #59AFFF;
+    color: #222B3A;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Jarak ikon dan teks */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-custom-schedule:hover {
+    background-color: #3B82F6;
+    color: #ffffff;
+}
