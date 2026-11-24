@@ -1,4 +1,0 @@
-# Konfigurasi database. Bisa ditimpa lewat environment variable DB_URL, DB_USER, DB_PASS.
-db.url=jdbc:mysql://localhost:3306/ukm_genshin?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Jakarta
-db.user=root
-db.password=GANTI_PASSWORD_MYSQL
